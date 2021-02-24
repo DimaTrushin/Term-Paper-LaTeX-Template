@@ -1,7 +1,6 @@
 \newcommand{\@tpageUDK}{}
 \newcommand{\@tpageType}{}
 \newcommand{\@tpageTitle}{}
-\newcommand{\@tpageStage}{}
 \newcommand{\@tpageGroup}{}
 \newcommand{\@tpageStudentSgn}{}
 \newcommand{\@tpageStudent}{}
@@ -17,7 +16,11 @@
 
 \newcommand{\setUDK}[1]{\renewcommand{\@tpageUDK}{#1}}
 \newcommand{\setTitle}[1]{\renewcommand{\@tpageTitle}{#1}}
-\newcommand{\setStage}[1]{\renewcommand{\@tpageStage}{#1}}
+
+\newcommand{\setStageOne}{\newcommand{\@tStage}{(промежуточный, этап 1)}}
+\newcommand{\setStageTwo}{\newcommand{\@tStage}{(промежуточный, этап 2)}}
+\newcommand{\setStageFinal}{\newcommand{\@tStage}{\vphantom{()}}}
+
 \newcommand{\setGroup}[1]{\renewcommand{\@tpageGroup}{#1}}
 \newcommand{\setStudentSgn}[1]{\renewcommand{\@tpageStudentSgn}{#1}}
 \newcommand{\setStudent}[1]{\renewcommand{\@tpageStudent}{#1}}
@@ -30,8 +33,8 @@
 \newcommand{\setAdvisorSgn}[1]{\renewcommand{\@tpageAdvisorSgn}{#1}}
 \newcommand{\setYear}[1]{\renewcommand{\@tpageYear}{#1}}
 
-\newcommand{\setToResearch}{\renewcommand{\@tpageType}{Отчет об исследовательском проекте}}
-\newcommand{\setToProgram}{\renewcommand{\@tpageType}{Отчет о программном проекте}\renewcommand{\@tUDK}{}}
+\newcommand{\setToResearch}{\renewcommand{\@tpageType}{Отчет об исследовательском проекте}\renewcommand{\@tUDK}{УДК: \@tpageUDK}}
+\newcommand{\setToProgram}{\renewcommand{\@tpageType}{Отчет о программном проекте}\renewcommand{\@tUDK}{\vphantom{УДК}}}
 
 \newcommand{\@textWithScript}[3]{\parbox[t]{#1}{\hbox to #1{\hfil#2\strut\hfil}\hrule\hbox to #1{\hfil #3\strut\hfil}}}
 
@@ -92,7 +95,7 @@
 \end{center}
 
 \begin{center}
-\@tpageStage
+\@tStage
 \end{center}
 
 \vspace{1.5cm}
