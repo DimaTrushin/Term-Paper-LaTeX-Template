@@ -1,0 +1,46 @@
+% Определим окружение для кода
+% Используется пакет listings
+
+\definecolor{@clr-python-background}{RGB}{250,250,250}
+\definecolor{@clr-python-text}{RGB}{0,0,0}
+\definecolor{@clr-python-string}{RGB}{0,170,0}
+%\definecolor{@clr-python-preprocessor}{RGB}{0,0,153}
+\definecolor{@clr-python-definitions}{RGB}{0,0,255}
+\definecolor{@clr-python-keyword}{RGB}{255,119,0}
+\definecolor{@clr-python-variable}{RGB}{0,0,0}
+\definecolor{@clr-python-comment}{RGB}{221,0,0}
+\definecolor{@clr-python-type}{RGB}{144,0,144}
+
+\newcommand{\@twpythonfont}{\footnotesize\ttfamily}
+\lstdefinestyle{Python}{
+  showlines=true,
+  numbers=left,
+  frame=tb,
+  tabsize=2,
+  showstringspaces=false,
+  backgroundcolor=\color{@clr-python-background},
+  basicstyle=\color{@clr-python-text}\@twpythonfont, 
+  stringstyle=\color{@clr-python-string}\@twpythonfont,
+  identifierstyle=\color{@clr-python-variable}\@twpythonfont, 
+  commentstyle=\color{@clr-python-comment}\@twpythonfont,
+  keywordstyle=\color{@clr-python-keyword}\@twpythonfont,
+  morekeywords={as, False, None, True, assert, async, await, nonlocal, with, yield},
+  emph={int, float, complex, list, tuple, range, str, bytes, bytearray, memoryview, set, frozenset, dict, abs, aiter, all, any, anext, ascii, bin, bool, breakpoint, callable, chr, classmethod, compile, complex, delattr, dir, divmod, enumerate, eval, exec, filter, format, getattr, globals, hasattr, hash, help, hex, id, input, isinstance, issubclass, iter, len, locals, map, max, min, next, object, oct, open, ord, pow, print, property, repr, reversed, round, setattr, slice, sorted, staticmethod, sum, super, type, vars, zip, @classmethod, @staticmethod},
+  emphstyle={\color{@clr-python-type}\@twpythonfont},
+  emph=[2]{_, _PyBytes_, _PyInterpreterState_, _PyObject_, _PyTuple_, _Py_, _Py_c_, __, __PYVENV_LAUNCHER__, __abs__, __add__, __aenter__, __aexit__, __aiter__, __all__, __and__, __anext__, __annotations__, __args__, __await__, __bases__, __bool__, __breakpointhook__, __bytes__, __cached__, __call__, __callback__, __cause__, __ceil__, __class__, __class_getitem__, __classcell__, __closure__, __code__, __complex__, __concat__, __contains__, __context__, __copy__, __debug__, __deepcopy__, __defaults__, __del__, __delattr__, __delete__, __delitem__, __dict__, __dir__, __displayhook__, __divmod__, __doc__, __enter__, __eq__, __excepthook__, __exit__, __file__, __float__, __floor__, __floordiv__, __format__, __fspath__, __func__, __future__, __ge__, __get__, __getattr__, __getattribute__, __getitem__, __getnewargs__, __getnewargs_ex__, __getstate__, __globals__, __gt__, __hash__, __iadd__, __iand__, __iconcat__, __ifloordiv__, __ilshift__, __imatmul__, __imod__, __import__, __imul__, __index__, __init__, __init_subclass__, __instancecheck__, __int__, __interactivehook__, __inv__, __invert__, __ior__, __ipow__, __irshift__, __isub__, __iter__, __itruediv__, __ixor__, __kwdefaults__, __le__, __len__, __length_hint__, __loader__, __lshift__, __lt__, __main__, __matmul__, __missing__, __mod__, __module__, __mro__, __mul__, __name__, __ne__, __neg__, __new__, __next__, __not__, __notes__, __optional_keys__, __or__, __origin__, __package__, __parameters__, __path__, __pos__, __pow__, __prepare__, __qualname__, __radd__, __rand__, __rdivmod__, __reduce__, __reduce_ex__, __repr__, __required_keys__, __reversed__, __rfloordiv__, __rlshift__, __rmatmul__, __rmod__, __rmul__, __ror__, __round__, __rpow__, __rrshift__, __rshift__, __rsub__, __rtruediv__, __rxor__, __self__, __set__, __set_name__, __setattr__, __setitem__, __setstate__, __slots__, __spec__, __stderr__, __stdin__, __stdout__, __str__, __sub__, __subclasscheck__, __subclasses__, __subclasshook__, __suppress_context__, __total__, __traceback__, __truediv__, __trunc__, __unpacked__, __unraisablehook__, __xor__, _anonymous_, _b_base_, _b_needsfree_, _clear_type_, _current_, _emscripten_, _enter_, _field_, _fields_, _generate_next_value_, _get_child_, _get_preferred_, _ignore_, _leave_, _length_, _missing_, _numeric_repr_, _objects, _pack_, _register_, _type_, _unregister_},
+  emphstyle=[2]{\color{@clr-python-definitions}\@twpythonfont}
+}
+
+\newcounter{@pythoncode}
+\setcounter{@pythoncode}{1}
+\lstnewenvironment{pythoncode}[1][]
+  {\lstset{
+    language=Python,
+    style=Python,
+    #1
+  }
+}
+{\setcounter{@pythoncode}{\value{lstnumber}}}
+
+\newcommand{\inputpythoncode}[2][]{\lstinputlisting[language=Python, style=Python,, #1]{#2}}
+

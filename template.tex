@@ -91,7 +91,35 @@ Note also that very recently several constructions of~\cite{Elkik73} were clarif
 
 \subsection{Содержательная часть 2}
 
-% Здесь автоматически генерируется библиография. Первая команда задает стиль оформления библиографии, а вторая указывает на имя файла с расширением bib, в котором находится информация об источниках.
+
+\section{Вставки кода}
+
+Вставки кода прямо в тексте на плюсах:
+\begin{cppcode}
+#include "test.h"
+#include "except.h"
+
+int main() {
+  try {
+    test::run_all();
+  } catch(...) {
+    except::react();
+  }
+  return 0;
+}
+\end{cppcode}
+
+И на питоне:
+\begin{pythoncode}
+def function(x, y):
+  return x + y;
+  
+def main():
+  z = function(2, 3)
+  print(f"2 + 3 = {z}");
+\end{pythoncode}
+
+% Здесь автоматически генерируется библиография. Первая команда задает стиль оформления библиографии, а вторая указывает на имя файла с расширением bib, в котором находится информация об источниках. Чтобы источник появился, надо на него сослаться.
 \bibliographystyle{plainurl}
 \bibliography{bibl}
 
